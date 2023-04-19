@@ -1,0 +1,223 @@
+cabal-version:      2.4
+name:               honduit-web-api
+version:            0.1.0.0
+author:             Keisuke Kido
+maintainer:         kekido@moneytree.jp
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules:
+      HonduitWebApi.Lib.Lucid.Data.Attribute
+      HonduitWebApi.Lib.Lucid.Data.DataAttributes
+      HonduitWebApi.Lib.ByteString
+      HonduitWebApi.Lib.Either
+      HonduitWebApi.Lib.ExceptT
+      HonduitWebApi.Lib.Jwt
+      HonduitWebApi.Lib.Maybe
+      HonduitWebApi.Lib.MaybeT
+      HonduitWebApi.Lib.String
+      HonduitWebApi.Data.AppConfig
+      HonduitWebApi.Data.AppContext
+      HonduitWebApi.Data.AppDatabaseOrmContext
+      HonduitWebApi.Data.Article
+      HonduitWebApi.Data.ArticleFavorite
+      HonduitWebApi.Data.ArticleFeedFilter
+      HonduitWebApi.Data.ArticleFeedFilterConfig
+      HonduitWebApi.Data.ArticleFeedTemplateProps
+      HonduitWebApi.Data.AuthConfig
+      HonduitWebApi.Data.AuthHeaders
+      HonduitWebApi.Data.AuthUserArticleFeedFilter
+      HonduitWebApi.Data.AuthUserArticleFeedFilterPayload
+      HonduitWebApi.Data.AuthUserArticle
+      HonduitWebApi.Data.AuthUserArticleRepositoryContext
+      HonduitWebApi.Data.AuthUserArticleRepositoryInterface
+      HonduitWebApi.Data.AuthUser
+      HonduitWebApi.Data.AuthUserUserProfile
+      HonduitWebApi.Data.AuthUserOptionalRoute
+      HonduitWebApi.Data.HtmlContentType
+      HonduitWebApi.Data.LinkTemplateProps
+      HonduitWebApi.Data.PaginatedResponse
+      HonduitWebApi.Data.PaginationMetadata
+      HonduitWebApi.Data.PaginationTemplateProps
+      HonduitWebApi.Data.SessionRepositoryContext
+      HonduitWebApi.Data.SessionRepositoryInterface
+      HonduitWebApi.Data.Tag
+      HonduitWebApi.Data.User
+      HonduitWebApi.Data.UserAuthCredential
+      HonduitWebApi.Data.UserLoginApiRequestBody
+      HonduitWebApi.Data.UserLoginApiResponse
+      HonduitWebApi.Data.UserLoginCredential
+      HonduitWebApi.Data.UserProfile
+      HonduitWebApi.Data.UserRepositoryContext
+      HonduitWebApi.Data.UserRepositoryInterface
+      HonduitWebApi.Services.AppApi
+      HonduitWebApi.Services.AppApiServer
+      HonduitWebApi.Services.AppDatabaseOrm
+      HonduitWebApi.Services.AuthUserArticleRepository
+      HonduitWebApi.Services.SessionRepository
+      HonduitWebApi.Services.UserRepository
+      HonduitWebApi.Templates.Components.Link
+      HonduitWebApi.Templates.Components.AppHeader
+      HonduitWebApi.Templates.Components.Pagination
+      HonduitWebApi.Templates.Components.ArticleFeed
+      HonduitWebApi.Templates.Components.ArticleFeedItem
+      HonduitWebApi.Templates.Layouts.App
+      HonduitWebApi.Templates.Pages.Home
+      HonduitWebApi.Templates.Pages.Posts
+      HonduitWebApi.Templates.Pages.NotFound
+      HonduitWebApi.Templates.Pages.Login
+      HonduitWebApi.Templates.Pages.Register
+    hs-source-dirs: src
+    default-language: Haskell2010
+    default-extensions:
+      BlockArguments
+      DataKinds
+      DeriveAnyClass
+      DeriveGeneric
+      DuplicateRecordFields
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      NoFieldSelectors
+      OverloadedStrings
+      OverloadedRecordDot
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TypeOperators
+      TupleSections
+    ghc-options: -Wall -Wcompat -Widentities -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+    build-depends:
+        aeson
+      , aeson-pretty
+      , aeson-qq
+      , async
+      , base
+      , butcher
+      , bytestring
+      , case-insensitive
+      , cookie
+      , containers
+      , directory
+      , exceptions
+      , extra
+      , filepath
+      , hashable
+      , hedis
+      , honduit-core
+      , honduit-database
+      , hslogger
+      , http-client
+      , http-conduit
+      , http-media
+      , http-types
+      , ini
+      , jose
+      , lens
+      , lucid
+      , lucid-svg
+      , mime-types
+      , mtl
+      , network
+      , optics-core
+      , optparse-applicative
+      , parsec
+      , postgresql-simple
+      , process
+      , regex-tdfa
+      , retry
+      , rio
+      , scotty
+      , serialise
+      , servant
+      , servant-server
+      , split
+      , stm
+      , text
+      , time
+      , transformers
+      , typed-process
+      , unordered-containers
+      , utf8-string
+      , wai
+      , wai-cors
+      , wai-middleware-static
+      , warp
+      , yaml
+
+executable honduit-web-api-exe
+    main-is: Main.hs
+    hs-source-dirs: app
+    default-language: Haskell2010
+    default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      DuplicateRecordFields
+      LambdaCase
+      NoImplicitPrelude
+      NoFieldSelectors
+      OverloadedLabels
+      OverloadedStrings
+      OverloadedRecordDot
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TupleSections
+    ghc-options: -Wall -Wcompat -Widentities -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+    build-depends:
+        aeson
+      , aeson-pretty
+      , aeson-qq
+      , async
+      , base
+      , butcher
+      , bytestring
+      , case-insensitive
+      , containers
+      , directory
+      , exceptions
+      , extra
+      , filepath
+      , hashable
+      , hedis
+      , honduit-web-api
+      , hslogger
+      , http-client
+      , http-conduit
+      , http-types
+      , ini
+      , lens
+      , lucid
+      , mime-types
+      , mtl
+      , network
+      , optics-core
+      , optparse-applicative
+      , parsec
+      , postgresql-simple
+      , process
+      , regex-tdfa
+      , retry
+      , rio
+      , scotty
+      , serialise
+      , servant
+      , servant-server
+      , split
+      , stm
+      , text
+      , time
+      , transformers
+      , typed-process
+      , unordered-containers
+      , utf8-string
+      , wai
+      , wai-cors
+      , wai-middleware-static
+      , warp
+      , yaml
